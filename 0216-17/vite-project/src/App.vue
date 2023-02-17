@@ -1,10 +1,11 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue';
-import { useStore,mapState,mapGetters,mapMutations } from 'vuex';
+import { useStore,mapState,mapGetters,mapMutations,mapActions } from 'vuex';
 import { computed } from 'vue';
-import useMapState from "./hooks/useMapState"
-import useGetters from "./hooks/useGetters.js"
 import vuexMap from "./hooks/vuexMap.js"
+// import useMapState from "./hooks/useMapState"
+// import useGetters from "./hooks/useGetters.js"
+
 
 // const storeGettersFns = useGetters(["totalPrice", "unit", "nameInfo"])
 
@@ -16,20 +17,28 @@ import vuexMap from "./hooks/vuexMap.js"
 const storeGettersFns = vuexMap(mapGetters, ["totalPrice", "unit", "nameInfo"])
 const storeState = vuexMap(mapState,['name', 'age', 'gender'])
 
-const storeMutations = mapMutations(["add", "reduce"])
-
+// const storeMutations = mapMutations(["add", "reduce"])
 
 const store = useStore();
 
-function add() {
-            store.commit("add", 1)
-        }
-// function reduce() {
-//             store.commit("reduce")
+// function add() {
+//             store.commit("add", 1)
 //         }
+function reduce() {
+            store.commit("reduce")
+        }
+function async_add() {
+            store.dispatch("addActions", 1)
+        }
 
 const num = computed(() => store.state.num);
 // const unit = computed(() => store.getters.unit);
+
+// const { add : [add] } = store._mutations;
+
+const { addActions: [add] } = store._actions;
+
+
 
 
 
@@ -63,8 +72,11 @@ const num = computed(() => store.state.num);
     <p>{{ storeGettersFns.nameInfo }}</p>
     <p>mutation</p>
     <h1>{{$store.state.counter}}</h1>
-    <button @click="add">+1</button>
+    <button @click="add(1)">+1</button>
     <button @click="reduce">-1</button>
+    <p>action</p>
+    <h1>{{$store.state.counter}}</h1>
+    <button @click="async_add">+1</button>
   </div>
   <HelloWorld msg="Vite + Vue" />
 </template>

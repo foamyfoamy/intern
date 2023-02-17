@@ -58,5 +58,14 @@ export default createStore({
         reduce(state) {
             state.counter--
         }
+    },
+    actions: {
+        // addActions({ commit, dispatch, state, rootGetters, rootState, getters }, payload) { // 这个式结构的写法
+        addActions(context, payload) {
+            // 查看 context 的属性有哪些
+            console.log(context);
+
+            context.commit("add", payload)
+        }
     }
 })
