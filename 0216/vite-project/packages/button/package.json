@@ -1,0 +1,20 @@
+{
+    "name": "foamyfoamyui",
+    "version": "0.3.3",
+    "description": "foamyfoamy demo for uploaded",
+    "private": false,
+    "main": "lib/index.js",
+    "module": "es/index.js",
+    "license": "MIT",
+    "author": "sks",
+    "scripts": {
+        "build": "rollup -c"
+    },
+    "files": [
+        "lib",
+        "README.md"
+    ],
+    "dependencies": {
+        "user": "^0.0.0"
+    }
+}

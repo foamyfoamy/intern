@@ -1,0 +1,1 @@
+import{openBlock as t,createElementBlock as n,normalizeClass as e}from"vue";var u={name:"wh-button",props:{type:{type:String,default:"default"}}};u.render=function(u,o,r,a,l,p){return t(),n("button",{class:e(["wh_button--"+r.type])},null,2)},u.__file="src/button.vue",u.install=function(t){t.component(u.name,u)};export{u as default};
