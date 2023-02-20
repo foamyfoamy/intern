@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "mitt": "^3.0.0"
+    "mitt": "^3.0.0",
+    "screenfull": "^6.0.2",
+    "vue-i18n": "^9.2.2"
   }
 }
